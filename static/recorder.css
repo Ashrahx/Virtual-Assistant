@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  padding-left: 24px;
+  margin: 0 auto;
+}
+
+.header h1::before {
+  content: "";
+  width: 6rem;
+  display: flex;
+}
+
+.header span {
+  color: #097dea;
+}
+
+.hero {
+  padding-top: 224px;
+  overflow: hidden;
+}
+
+#player span {
+  display: block;
+}
+#player .player-info {
+  font-size: 14px;
+}
+
+input.progress {
+  cursor: ew-resize;
+}
+
+input.progress[value] {
+  position: relative;
+  width: 100%;
+  height: 27px;
+  -webkit-appearance: none;
+  background-color: transparent;
+  color: #0270d7;
+}
+
+input.progress[value]:focus {
+  outline: none;
+}
+
+input.progress[value]:after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+}
+
+input.progress[value]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: currentColor;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 1199.98px)  {
+  .header {
+    padding-left: 200px;
+}
+
+.button {
+  max-width: 7rem;
+  align-items: center;
+}
+}
+
+
+
+.btn-record {
+    border: none;
+    padding: 25px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.btn-record-green {
+    background-color: #19ceae;
+}
+
+.btn-record-red {
+    background-color: #dc3545;
+}
+
+.btn-record img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.record-spinner {
+    color: white;
+    width: 30px;
+    height: 30px
+}
+
+.mic-img {
+    width: 30px;
+}
