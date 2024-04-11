@@ -10,7 +10,6 @@ class TTS():
     
     def process(self, text):
         CHUNK_SIZE = 1024
-        #Utiliza la voz especifica de Bella
         url = f"https://api.elevenlabs.io/v1/text-to-speech/5D4ODgXvEGqGS9zN0qi0/stream"
 
         headers = {
@@ -28,8 +27,7 @@ class TTS():
             }
         }
 
-        #Lo guarda en static/response.mp3 para que el sitio web
-        #pueda leerlo y reproducirlo en el explorador
+
         file_name = "response.mp3"
         response = requests.post(url, json=data, headers=headers)
         with open("static/" + file_name, 'wb') as f:
@@ -38,3 +36,4 @@ class TTS():
                     f.write(chunk)
                     
         return file_name
+    response = ''
