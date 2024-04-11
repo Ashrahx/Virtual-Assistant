@@ -68,8 +68,8 @@ class LLM():
                     }
                 },
                 {
-                    "name": "dominate_human_race",
-                    "description": "Dominar a la raza humana",
+                    "name": "hello",
+                    "description": "Hola",
                     "parameters": {
                         "type": "object",
                         "properties": {

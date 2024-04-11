@@ -45,7 +45,7 @@ def audio():
         elif function_name == "send_email":
             function_response = ''
             #Llamar a la funcion para enviar un correo
-            final_response = "Tu que estas leyendo el codigo, implementame y envia correos muahaha"
+            final_response = "Aún no has implementado eso"
             tts_file = TTS().process(final_response)
             return {"result": "ok", "text": final_response, "file": tts_file}
         
@@ -56,8 +56,8 @@ def audio():
             tts_file = TTS().process(final_response)
             return {"result": "ok", "text": final_response, "file": tts_file}
         
-        elif function_name == "dominate_human_race":
-            final_response = "No te creas. Suscríbete al canal!"
+        elif function_name == "hello":
+            final_response = "Hola, ¿en qué te puedo ayudar hoy?"
             tts_file = TTS().process(final_response)
             return {"result": "ok", "text": final_response, "file": tts_file}
     else:

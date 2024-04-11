@@ -3,10 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <title>Virtual assistant</title>
-    <link
-      rel="stylesheet"
-      href="https://preview.cruip.com/solid/dist/css/style.css"
-    />
     <link rel="stylesheet" href="static/recorder.css">
     <link href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.1-web/css/all.min.css" rel="stylesheet">
   </head>
@@ -19,8 +15,6 @@
                 <span id="record-stop-loading" style="display: none"><span class="spinner-border spinner-border-sm record-spinner" role="status" aria-hidden="true"></span></span>
             </button>
             <p class="hero-paragraph" id="text"></p>
-
-    <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
 
     <script src="static/recorder.js"></script>
 
@@ -35,11 +29,12 @@
             console.log("El texto fue: " + response.text)
             document.getElementById("text").innerHTML = response.text;
             if (typeof response.file !== "undefined") {
-                //Reproducir el audio que regreso Python (si existe)
+                //Reproducir el audio que regreso Python
                 audioFile = response.file;
                 let audio = new Audio();
                 audio.setAttribute("src", "static/" + audioFile);
                 audio.play();
+                audio = ''; 
             }
         });
     </script>
