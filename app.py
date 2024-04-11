@@ -33,6 +33,7 @@ def audio():
         #Si se desea llamar una funcion de las que tenemos
         if function_name == "get_weather":
             #Llamar a la funcion del clima
+            function_response = ''
             function_response = Weather().get(args["ubicacion"])
             function_response = json.dumps(function_response)
             print(f"Respuesta de la funcion: {function_response}")
@@ -42,12 +43,14 @@ def audio():
             return {"result": "ok", "text": final_response, "file": tts_file}
         
         elif function_name == "send_email":
+            function_response = ''
             #Llamar a la funcion para enviar un correo
             final_response = "Tu que estas leyendo el codigo, implementame y envia correos muahaha"
             tts_file = TTS().process(final_response)
             return {"result": "ok", "text": final_response, "file": tts_file}
         
         elif function_name == "open_chrome":
+            function_response = ''
             PcCommand().open_chrome(args["website"])
             final_response = "Listo, ya abrí chrome en el sitio " + args["website"]
             tts_file = TTS().process(final_response)
@@ -58,6 +61,6 @@ def audio():
             tts_file = TTS().process(final_response)
             return {"result": "ok", "text": final_response, "file": tts_file}
     else:
-        final_response = "No tengo idea de lo que estás hablando, Ringa Tech"
+        final_response = "No tengo idea de lo que estás hablando"
         tts_file = TTS().process(final_response)
         return {"result": "ok", "text": final_response, "file": tts_file}

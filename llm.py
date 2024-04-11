@@ -102,7 +102,7 @@ class LLM():
             model="gpt-3.5-turbo-0613",
             messages=[
                 #Aqui tambien puedes cambiar como se comporta
-                {"role": "system", "content": "Eres un asistente malhablado"},
+                {"role": "system", "content": "Eres un asistente virtual femenino"},
                 {"role": "user", "content": text},
                 message,
                 {
