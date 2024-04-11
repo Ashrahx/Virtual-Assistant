@@ -15,7 +15,6 @@ function recorder(url, handler) {
 
 async function record() {
     try {
-        document.getElementById("text").innerHTML = "<i>Grabando...</i>";
         document.getElementById("record").style.display="none";
         document.getElementById("stop").style.display="";
         document.getElementById("record-stop-label").style.display="block"
