@@ -3,7 +3,6 @@ let stream;
 let rec;
 let recordUrl;
 let audioResponseHandler;
-
 //Solo grabo el URL a llamar (e.g. /audio) y el 'handler'
 //o 'callback' a llamar cuando termine la grabacion
 function recorder(url, handler) {
@@ -47,7 +46,7 @@ function doPreview() {
         console.log("Tenemos blobios!");
         const blob = new Blob(blobs);
 
-        //Usar fetch para enviar el audio grabado a Pythonio
+        //Usar fetch para enviar el audio grabado a Python
         var fd = new FormData();
         fd.append("audio", blob, "audio");
 
@@ -75,7 +74,6 @@ function stop() {
 //Llamar al handler en caso que exista
 function handleAudioResponse(response){
     if (!response || response == null) {
-        //TODO subscribe you thief
         console.log("No response");
         return;
     }
