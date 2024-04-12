@@ -9,6 +9,7 @@ from weather import Weather
 from tts import TTS
 from pc_command import PcCommand
 from music import search_song_on_spotify, search_song_on_youtube
+from joke import joke
 
 #Cargar llaves del archivo .env
 load_dotenv()
@@ -69,7 +70,10 @@ def audio():
             tts_file = TTS().process(final_response)
             return {"result": "ok", "text": final_response, "file": tts_file}
 
-
+        elif function_name == "contar_chiste":
+            final_response = joke()
+            tts_file = TTS().process(final_response)
+            return {"result": "ok", "text": final_response, "file": tts_file}
     
     else:
         final_response = "No tengo idea de lo que estás hablando"

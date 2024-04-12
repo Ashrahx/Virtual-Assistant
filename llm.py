@@ -93,7 +93,15 @@ class LLM():
                         },
                         "required": ["platform", "song_name"], # Both parameters are required
                     },
-                }
+                },
+                {
+                    "name": "contar_chiste",
+                    "description": "Contar un chiste aleatorio",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                },
             ],
             function_call="auto",
         )
