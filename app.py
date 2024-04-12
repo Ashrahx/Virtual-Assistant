@@ -8,6 +8,7 @@ from llm import LLM
 from weather import Weather
 from tts import TTS
 from pc_command import PcCommand
+from music import search_song_on_spotify, search_song_on_youtube
 
 #Cargar llaves del archivo .env
 load_dotenv()
@@ -33,7 +34,6 @@ def audio():
         #Si se desea llamar una funcion de las que tenemos
         if function_name == "get_weather":
             #Llamar a la funcion del clima
-            function_response = ''
             function_response = Weather().get(args["ubicacion"])
             function_response = json.dumps(function_response)
             print(f"Respuesta de la funcion: {function_response}")
@@ -43,14 +43,12 @@ def audio():
             return {"result": "ok", "text": final_response, "file": tts_file}
         
         elif function_name == "send_email":
-            function_response = ''
             #Llamar a la funcion para enviar un correo
             final_response = "Aún no has implementado eso"
             tts_file = TTS().process(final_response)
             return {"result": "ok", "text": final_response, "file": tts_file}
         
         elif function_name == "open_chrome":
-            function_response = ''
             PcCommand().open_chrome(args["website"])
             final_response = "Listo, ya abrí chrome en el sitio " + args["website"]
             tts_file = TTS().process(final_response)
@@ -60,6 +58,19 @@ def audio():
             final_response = "Soy un asistente virtual llamado Chloe. Estoy diseñado para escuchar tu petición y proporcionarte una respuesta útil. Dicho esto, ¿en qué te puedo ayudar hoy?"
             tts_file = TTS().process(final_response)
             return {"result": "ok", "text": final_response, "file": tts_file}
+        
+        elif function_name == "request_song":
+            if args["platform"].lower() == "spotify":
+                final_response = search_song_on_spotify(args["song_name"])
+            elif args["platform"].lower() == "youtube":
+                final_response = search_song_on_youtube(args["song_name"])
+            else:
+                final_response = "Plataforma no soportada."
+            tts_file = TTS().process(final_response)
+            return {"result": "ok", "text": final_response, "file": tts_file}
+
+
+    
     else:
         final_response = "No tengo idea de lo que estás hablando"
         tts_file = TTS().process(final_response)

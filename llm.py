@@ -51,7 +51,7 @@ class LLM():
                                 "description": "El texto del cuerpo del correo",
                             }
                         },
-                        "required": [],
+                        "required": ["recipient", "subject", "body"],
                     },
                 },
                 {
@@ -67,13 +67,31 @@ class LLM():
                         }
                     }
                 },
-                {
+                 {
                     "name": "who",
                     "description": "¿Qué eres? o ¿Quién eres?",
                     "parameters": {
                         "type": "object",
                         "properties": {
                         }
+                    },
+                },
+                {
+                    "name": "request_song",
+                    "description": "Solicitar una canción en YouTube o Spotify",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "platform": {
+                                "type": "string",
+                                "description": "La plataforma de música (YouTube o Spotify)",
+                            },
+                            "song_name": {
+                                "type": "string",
+                                "description": "El nombre de la canción a solicitar",
+                            }
+                        },
+                        "required": ["platform", "song_name"], # Both parameters are required
                     },
                 }
             ],
