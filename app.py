@@ -56,8 +56,8 @@ def audio():
             tts_file = TTS().process(final_response)
             return {"result": "ok", "text": final_response, "file": tts_file}
         
-        elif function_name == "hello":
-            final_response = "Hola, ¿en qué te puedo ayudar hoy?"
+        elif function_name == "who":
+            final_response = "Soy un asistente virtual llamado Chloe. Estoy diseñado para escuchar tu petición y proporcionarte una respuesta útil. Dicho esto, ¿en qué te puedo ayudar hoy?"
             tts_file = TTS().process(final_response)
             return {"result": "ok", "text": final_response, "file": tts_file}
     else:

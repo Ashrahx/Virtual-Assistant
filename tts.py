@@ -23,7 +23,8 @@ class TTS():
             "model_id": "eleven_multilingual_v2",
             "voice_settings": {
                 "stability": 0.93,
-                "similarity_boost": 0.75
+                "similarity_boost": 0.75,
+                "style": 1
             }
         }
 

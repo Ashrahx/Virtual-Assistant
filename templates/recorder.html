@@ -2,102 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Virtual assistant</title>
+    <title>Chloe | Asistente Virtual</title>
     <link rel="stylesheet" href="static/recorder.css">
-
-    <style>
-      * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-body{
-  background-color: #171719;
-}
-.container button {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: #000;
-  border: none;
-  display: block;
-  cursor: pointer;
-  margin-top: 50px;
-}
-.container{
-  display: flex;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-  flex-direction: column;
-}
-.btn-record ion-icon {
-  font-size: 2.5rem;
-  color: #fff;
-}
-.container .logo{
-  width: 500px;
-  height: 150px;
-  margin-top: 50px;
-}
-.container .logo img{
-  width: 100%;
-  height: 100%;
-}
-.hero-paragraph{
-  margin-top: 80px;
-}
-.container-info{
-  max-width: 500px;
-  font-size: 1.3rem;
-  color: #fff;
-}
-.container h1{
-  color: #949494;
-}
-
-@keyframes fadeInUp {
-  0% {
-    transform: translateY(30%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-}
-
-.fadeInUp-animation {
-  animation: 1.5s fadeInUp;
-}
-
-    </style>
+    <link rel="icon" href="static/images/chloe-icon.svg" sizes="any" type="image/svg+xml">
   </head>
   <body>
+    <audio src="static/welcome.mp3" autoplay>
+      Your browser does not support the <code>audio</code> element.
+    </audio>
     <div class="container">
-      <h1  class="logo"><img class="fadeInUp-animation" src="./img.land/chloe-logo.svg" alt=""></h1>
-      <h1 class="fadeInUp-animation">Bienvenido, ¿En qué te puedo ayudar hoy?</h1>
-      <button type="button" class="btn-record btn-record-green fadeInUp-animation" id="record" onclick="record()">
+      <h1  class="logo"><img class="fadeInUp-animation" src="static/images/chloe-logo.svg" alt="Logo Chloe"></h1>
+      <h1 class="fadeInUp-animation">Hola, ¿en qué te puedo ayudar hoy?</h1>
+      <button type="button" class="btn-record fadeInUp-animation" id="record" onclick="record()">
         <ion-icon name="mic-outline"></ion-icon>
       </button>
-      <button type="button" class="btn-record btn-record-red" id="stop" onclick="stop()" style="display:none">
-        <ion-icon name="stop-sharp"></ion-icon>
+      <button type="button" class="btn-record" id="stop" onclick="stop()" style="display:none">
+        <ion-icon name="stop-sharp" id="record-stop-label"></ion-icon>
+        <div class="load-3" id="record-stop-loading" style="display: none">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
       </button>
       <div class="container-info">
       <p class="hero-paragraph" id="text"></p>
     </div>
     </div>
-    
-    
-    <!--     <button type="button" class="btn-record btn-record-green" id="record" onclick="record()">
-                <img class="mic-img" src="static/img/microphone.png" />
-            </button>
-            <button type="button" class="btn-record btn-record-red" id="stop" onclick="stop()" style="display:none">
-                <img class="mic-img" id="record-stop-label" src="static/img/microphone.png" />
-                <span id="record-stop-loading" style="display: none"><span class="spinner-border spinner-border-sm record-spinner" role="status" aria-hidden="true"></span></span>
-            </button>
-            <p class="hero-paragraph" id="text"></p> -->
 
     <script src="static/recorder.js"></script>
 
@@ -119,6 +49,14 @@ body{
                 audio.play();
             }
         });
+
+        const playSound = function() { 
+          let welcome = new Audio("static/welcome.mp3");
+            welcome.play(); 
+            document.removeEventListener('click', playSound);
+          }
+        document.addEventListener('click', playSound);
+
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

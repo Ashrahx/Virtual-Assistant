@@ -68,8 +68,8 @@ class LLM():
                     }
                 },
                 {
-                    "name": "hello",
-                    "description": "Hola",
+                    "name": "who",
+                    "description": "¿Qué eres? o ¿Quién eres?",
                     "parameters": {
                         "type": "object",
                         "properties": {
