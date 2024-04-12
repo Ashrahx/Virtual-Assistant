@@ -3,7 +3,7 @@ let stream;
 let rec;
 let recordUrl;
 let audioResponseHandler;
-//Solo grabo el URL a llamar (e.g. /audio) y el 'handler'
+//URL a llamar (e.g. /audio) y el 'handler'
 //o 'callback' a llamar cuando termine la grabacion
 function recorder(url, handler) {
     recordUrl = url;
@@ -22,7 +22,7 @@ async function record() {
 
         blobs = [];
 
-        //Grabar audio, blabla
+        //Grabar audio
         stream = await navigator.mediaDevices.getUserMedia({audio:true, video:false})
         rec = new MediaRecorder(stream);
         rec.ondataavailable = e => {
@@ -41,9 +41,9 @@ async function record() {
 
 function doPreview() {
     if (!blobs.length) {
-        console.log("No hay blobios!");
+        console.log("No hay blobs!");
     } else {
-        console.log("Tenemos blobios!");
+        console.log("Tenemos blobs!");
         const blob = new Blob(blobs);
 
         //Usar fetch para enviar el audio grabado a Python
@@ -57,7 +57,7 @@ function doPreview() {
         .then((response) => response.json())
         .then(audioResponseHandler)
         .catch(err => {
-            //Puedes hacer algo más inteligente aquí
+            //Puede cambiarse
             console.log("Oops: Ocurrió un error", err);
         });
     }

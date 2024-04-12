@@ -6,7 +6,7 @@ class Transcriber:
         pass
         
     #Siempre guarda y lee del archivo audio.mp3
-    #Utiliza whisper en la nube puedes cambiarlo por una impl local
+    #Utiliza whisper en la nube
     def transcribe(self, audio):
         audio.save("audio.mp3")
         audio_file= open("audio.mp3", "rb")
