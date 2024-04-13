@@ -3,6 +3,8 @@ import json
 
 #Clase para utilizar cualquier LLM para procesar un texto
 #Y regresar una funcion a llamar con sus parametros
+#Uso el modelo 0613, pero puedes usar un poco de
+#prompt engineering si quieres usar otro modelo
 class LLM():
     def __init__(self):
         pass
@@ -12,6 +14,7 @@ class LLM():
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo-0613",
             messages=[
+                    #Comportamiento
                     {"role": "system", "content": "Eres un asistente virtual femenino"},
                     {"role": "user", "content": text},
             ], functions=[
@@ -88,7 +91,7 @@ class LLM():
                                 "description": "El nombre de la canción a solicitar",
                             }
                         },
-                        "required": ["platform", "song_name"], 
+                        "required": ["platform", "song_name"],
                     },
                 },
                 {
@@ -105,7 +108,7 @@ class LLM():
         
         message = response["choices"][0]["message"]
         
-        #Condiciona si GPT quiere llamar una función
+        #Nuestro amigo GPT quiere llamar a alguna funcion?
         if message.get("function_call"):
             #Sip
             function_name = message["function_call"]["name"] #Que funcion?
@@ -124,6 +127,7 @@ class LLM():
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo-0613",
             messages=[
+                #Comportamiento
                 {"role": "system", "content": "Eres un asistente virtual femenino"},
                 {"role": "user", "content": text},
                 message,

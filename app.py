@@ -76,6 +76,6 @@ def audio():
             return {"result": "ok", "text": final_response, "file": tts_file}
     
     else:
-        final_response = "No tengo idea de lo que estás hablando, ¿puedes repetirlo de nuevo?"
+        final_response = "Lo siento, no te entendí ¿puedes repetirlo de nuevo?"
         tts_file = TTS().process(final_response)
         return {"result": "ok", "text": final_response, "file": tts_file}

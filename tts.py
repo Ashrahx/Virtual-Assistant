@@ -2,15 +2,17 @@ import os
 from dotenv import load_dotenv
 import requests
 
-#Texto a voz. Esta impl utiliza ElevenLabs
+# Texto a voz utiliza ElevenLabs
 class TTS():
     def __init__(self):
         load_dotenv()
         self.key = os.getenv('ELEVENLABS_API_KEY')
-    
+        self.id_value = os.getenv('ID_VALUE')
+
     def process(self, text):
         CHUNK_SIZE = 1024
-        url = f"https://api.elevenlabs.io/v1/text-to-speech/5D4ODgXvEGqGS9zN0qi0/stream"
+        # Usar format() para insertar el ID
+        url = "https://api.elevenlabs.io/v1/text-to-speech/{}/stream".format(self.id_value)
 
         headers = {
             "Accept": "audio/mpeg",
@@ -28,7 +30,6 @@ class TTS():
             }
         }
 
-
         file_name = "response.mp3"
         response = requests.post(url, json=data, headers=headers)
         with open("static/" + file_name, 'wb') as f:
@@ -37,4 +38,3 @@ class TTS():
                     f.write(chunk)
                     
         return file_name
-    response = ''

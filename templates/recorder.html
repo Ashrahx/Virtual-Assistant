@@ -14,11 +14,11 @@
       <h1  class="logo"><img class="fadeInUp-animation" src="static/images/chloe-logo.svg" alt="Logo Chloe"></h1>
       <h1 class="fadeInUp-animation">Hola, ¿en qué te puedo ayudar hoy?</h1>
       <button type="button" class="btn-record fadeInUp-animation" id="record" onclick="record()">
-        <ion-icon name="mic-outline"></ion-icon>
+        <ion-icon name="mic-outline" class="microphone"></ion-icon>
       </button>
       <button type="button" class="btn-record" id="stop" onclick="stop()" style="display:none">
         <ion-icon name="stop-sharp" id="record-stop-label"></ion-icon>
-        <div class="load-3" id="record-stop-loading" style="display: none">
+        <div class="loading" id="record-stop-loading" style="display: none">
           <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
@@ -27,6 +27,10 @@
       <div class="container-info">
       <p class="hero-paragraph" id="text"></p>
     </div>
+    <div class="copyright">
+      <p>Get the answers you're looking for with &copyChloe</p>
+    </div>
+    
     </div>
 
     <script src="static/recorder.js"></script>

@@ -1,4 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --background-color: #171719;
+    --button-color: #000;
+    --text-color: #fff;
+    --hover-color: #949494;
+    --animation-duration: 1.5s;
+    --fade-in-up-duration: 1.5s;
+    --loading-animation-duration: 0.6s;
+}
 
 * {
     margin: 0;
@@ -8,20 +18,7 @@
 }
 
 body {
-    background-color: #171719;
-}
-
-.container button {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: #000;
-    border: none;
-    display: block;
-    cursor: pointer;
-    margin-top: 50px;
-    align-items: center;
-    justify-content: center;
+    background-color: var(--background-color);
 }
 
 .container {
@@ -32,9 +29,38 @@ body {
     flex-direction: column;
 }
 
+.container button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--button-color);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
 .btn-record ion-icon {
     font-size: 2.5rem;
-    color: #fff;
+    color: var(--text-color);
+}
+
+.btn-record:hover .microphone {
+    animation: scale 1s linear infinite;
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
 }
 
 .btn-record #record-stop-label {
@@ -61,11 +87,11 @@ body {
 .container-info {
     max-width: 500px;
     font-size: 1.3rem;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .container h1 {
-    color: #949494;
+    color: var(--hover-color);
 }
 
 @keyframes fadeInUp {
@@ -73,7 +99,6 @@ body {
         transform: translateY(30%);
         opacity: 0;
     }
-
     100% {
         transform: translateY(0%);
         opacity: 1;
@@ -81,11 +106,15 @@ body {
 }
 
 .fadeInUp-animation {
-    animation: 1.5s fadeInUp;
+    animation: var(--fade-in-up-duration) fadeInUp;
 }
 
 .spinner {
     animation: rotator 1.4s linear infinite;
+}
+
+.loading {
+    padding: 1.2rem;
 }
 
 .line {
@@ -93,40 +122,33 @@ body {
     width: 10px;
     height: 10px;
     border-radius: 15px;
-    background-color: #fff;
+    background-color: var(--text-color);
 }
 
-.load-3 .line:nth-last-child(1) {
-    animation: loadingC 0.6s 0.1s linear infinite;
+.loading .line:nth-last-child(1) {
+    animation: loadingC var(--loading-animation-duration) 0.1s linear infinite;
 }
 
-.load-3 .line:nth-last-child(2) {
-    animation: loadingC 0.6s 0.2s linear infinite;
+.loading .line:nth-last-child(2) {
+    animation: loadingC var(--loading-animation-duration) 0.2s linear infinite;
 }
 
-.load-3 .line:nth-last-child(3) {
-    animation: loadingC 0.6s 0.3s linear infinite;
+.loading .line:nth-last-child(3) {
+    animation: loadingC var(--loading-animation-duration) 0.3s linear infinite;
 }
 
 @keyframes loadingC {
-    0% {
+    0%, 100% {
         transform: translate(0, 0);
     }
-
     25% {
         transform: translate(0, 5px);
     }
-
     50% {
         transform: translate(0, 10px);
     }
-
     75% {
         transform: translate(0, 15px);
-    }
-
-    100% {
-        transform: translate(0, 0);
     }
 }
 
@@ -134,8 +156,55 @@ body {
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(270deg);
+    }
+}
+
+.container .copyright {
+    margin-top: 10rem;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--hover-color);
+}
+
+@media only screen and (max-width: 900px) {
+    .container {
+        padding: 20px;
+    }
+
+    .container h1 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .container .logo {
+        width: 300px;
+        height: 75px;
+    }
+
+    .container-info {
+        font-size: 1rem;
+    }
+
+    .hero-paragraph {
+        margin-top: 40px;
+        word-spacing: 2px;
+    }
+
+    .btn-record:hover .microphone {
+        animation: none;
+    }
+
+    .fadeInUp-animation {
+        animation: none;
+    }
+
+    .spinner {
+        animation: none;
+    }
+
+    .loading .line {
+        animation: none;
     }
 }

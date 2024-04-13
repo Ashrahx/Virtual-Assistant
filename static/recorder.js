@@ -41,9 +41,9 @@ async function record() {
 
 function doPreview() {
     if (!blobs.length) {
-        console.log("No hay blobs!");
+        console.log("No hay blobios!");
     } else {
-        console.log("Tenemos blobs!");
+        console.log("Tenemos blobios!");
         const blob = new Blob(blobs);
 
         //Usar fetch para enviar el audio grabado a Python
@@ -57,7 +57,7 @@ function doPreview() {
         .then((response) => response.json())
         .then(audioResponseHandler)
         .catch(err => {
-            //Puede cambiarse
+            //Puedes hacer algo más inteligente aquí
             console.log("Oops: Ocurrió un error", err);
         });
     }
