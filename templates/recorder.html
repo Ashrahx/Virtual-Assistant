@@ -30,6 +30,14 @@
     <div class="copyright">
       <p>Get the answers you're looking for with &copyChloe</p>
     </div>
+
+    <div class="alert" id="alert">
+      <h1 class="alert-title">Aviso</h1>
+      <p class="alert-info">Para una mejor respuesta, recarga la página</p>
+      <button type="button" class="btn-close" onclick="reload()" id="refresh">
+        <ion-icon name="reload-sharp"></ion-icon>
+      </button>
+    </div>
     
     </div>
 
@@ -51,15 +59,30 @@
                 let audio = new Audio();
                 audio.setAttribute("src", "static/" + audioFile);
                 audio.play();
+                showIt();
+                
             }
         });
+        const reload = document.getElementById("refresh");
 
-        const playSound = function() { 
-          let welcome = new Audio("static/welcome.mp3");
-            welcome.play(); 
-            document.removeEventListener('click', playSound);
-          }
-        document.addEventListener('click', playSound);
+        reload.addEventListener("click", (_) => {
+        location.reload();
+        });
+        function showIt(){
+          setTimeout(() => {
+            document.getElementById('alert').style.scale = "1";
+          }, "4000");
+
+          
+        }
+        
+
+        // const playSound = function() { 
+        //   let welcome = new Audio("static/welcome.mp3");
+        //     welcome.play(); 
+        //     document.removeEventListener('click', playSound);
+        //   }
+        // document.addEventListener('click', playSound);
 
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

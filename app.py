@@ -74,6 +74,11 @@ def audio():
             final_response = joke()
             tts_file = TTS().process(final_response)
             return {"result": "ok", "text": final_response, "file": tts_file}
+        
+        elif function_name == "hello":
+            final_response = "Hola, ¿Qué puedo hacer por ti?"
+            tts_file = TTS().process(final_response)
+            return {"result": "ok", "text": final_response, "file": tts_file}
     
     else:
         final_response = "Lo siento, no te entendí ¿puedes repetirlo de nuevo?"

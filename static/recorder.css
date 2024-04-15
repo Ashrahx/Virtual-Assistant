@@ -29,7 +29,7 @@ body {
     flex-direction: column;
 }
 
-.container button {
+.container button:not(.btn-close) {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -40,11 +40,13 @@ body {
     justify-content: center;
     cursor: pointer;
     margin-top: 50px;
+    padding: 1.5rem;
 }
 
 .btn-record ion-icon {
     font-size: 2.5rem;
     color: var(--text-color);
+    position: absolute;
 }
 
 .btn-record:hover .microphone {
@@ -115,6 +117,9 @@ body {
 
 .loading {
     padding: 1.2rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
 }
 
 .line {
@@ -135,6 +140,55 @@ body {
 
 .loading .line:nth-last-child(3) {
     animation: loadingC var(--loading-animation-duration) 0.3s linear infinite;
+}
+
+.alert{
+    width: 400px;
+    background-color: #ededed;
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    display: grid;
+    place-items: center;
+    border-radius: 3.5rem 0rem;
+    height: auto;
+    transition: all .3s ease;
+}
+#alert{
+    scale: 0;
+}
+
+.btn-close{
+    background-color: #171719;
+    border: 2px solid #171719;
+    cursor: pointer;
+    margin: 1rem;
+    transition: .2s ease;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-close:hover{
+    background-color: transparent;
+    color: #000;
+}
+
+.btn-close ion-icon{
+    font-size: 1.5rem;
+    
+}
+
+.alert .alert-title{
+    color: #000;
+}
+
+.alert-info{
+    color: #858484;
 }
 
 @keyframes loadingC {
@@ -162,7 +216,8 @@ body {
 }
 
 .container .copyright {
-    margin-top: 10rem;
+    position: absolute;
+    bottom: 1rem;
     text-align: center;
     font-size: 1rem;
     color: var(--hover-color);

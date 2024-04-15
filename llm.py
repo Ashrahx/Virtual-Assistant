@@ -102,6 +102,15 @@ class LLM():
                         "properties": {}
                     },
                 },
+                {
+                    "name": "hello",
+                    "description": "Saludar al usuario                      ",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                        }
+                    },
+                }
             ],
             function_call="auto",
         )
